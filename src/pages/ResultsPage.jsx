@@ -6,27 +6,39 @@ const ResultsPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const answersList = useSelector((state) => state.answers.answersList);
-
-  console.log(answersList);
+  const questionList = useSelector((state) => state.questions.questionList);
 
   const handleRestart = () => {
     dispatch(RESET_ANSWERS());
     navigate('/');
   };
 
+  let correctAnswers = 0; // Initialize a counter for correct answers
+
   return (
     <div>
       <h2>Results Page</h2>
       {answersList.map((ans, index) => {
+        const question = questionList[index]; // Get the corresponding question
+
+        // Check if the answer is correct and increment the counter
+        if (ans.isCorrect) {
+          correctAnswers++;
+        }
+
         return (
-          <p
-            key={`answer_${index}`}
-            className={ans.isCorrect ? 'correct-answer' : 'incorrect-answer'}
-          >
-            {ans.answer}
-          </p>
+          <div key={`answer_${index}`}>
+            <p>
+              Question: <span dangerouslySetInnerHTML={{ __html: question.question }} />
+            </p>
+            <p className={ans.isCorrect ? 'correct-answer' : 'incorrect-answer'}>
+              Answer: <span dangerouslySetInnerHTML={{ __html: ans.answer }} />
+            </p>
+          </div>
         );
       })}
+
+      <p className='result'>Total Correct Answers: {correctAnswers}</p> 
       <button onClick={handleRestart}>Restart</button>
     </div>
   );
