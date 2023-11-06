@@ -1,0 +1,7 @@
+.myHeader {
+    background-color: gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
