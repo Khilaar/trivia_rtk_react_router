@@ -23,7 +23,7 @@ const ResultsPage = () => {
             key={`answer_${index}`}
             className={ans.isCorrect ? 'correct-answer' : 'incorrect-answer'}
           >
-            Answer: {ans.answer}
+            {ans.answer}
           </p>
         );
       })}
