@@ -41,3 +41,12 @@
   color: #888;
 }
 
+.correct-answer {
+  background-color: green;
+  border-radius: 10px;
+}
+.incorrect-answer{
+  background-color: rgb(68, 4, 4);
+  border-radius: 10px;
+}
+
