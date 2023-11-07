@@ -6,12 +6,12 @@ import { useNavigate } from 'react-router-dom';
 
 let id = 0;
 
-const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
+const shuffleArray = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    return array;
+    return arr;
 };
 
 const QuestionPage = () => {
@@ -40,9 +40,11 @@ const QuestionPage = () => {
 
         return (
             <div key={question.question}>
+                <div className='questionCard'>
                 <h2>Here is the question:</h2>
                 <div dangerouslySetInnerHTML={{ __html: question.question }} />
                 <p>Possible answers:</p>
+                </div>
                 <div className="possibleAnswers">
                     {shuffledAnswers.map((answer) => {
                         const uniqueId = generateUniqueId();

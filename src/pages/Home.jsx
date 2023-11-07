@@ -17,13 +17,14 @@ const Home = () => {
             .catch((err) => {
                 console.log(err)
             })
-    }, [dispatch])
+    }, [])
 
 
     
     return (
         <div>
-            <h2>Home Page</h2>
+            <img className="homepic" src="../assets/home.png" alt="" />
+            <h2>answer wisely</h2>
             <button onClick={() => navigate("/question")}>Start Quiz</button>
         </div>
     );

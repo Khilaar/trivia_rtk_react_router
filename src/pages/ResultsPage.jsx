@@ -13,15 +13,14 @@ const ResultsPage = () => {
     navigate('/');
   };
 
-  let correctAnswers = 0; // Initialize a counter for correct answers
+  let correctAnswers = 0; 
 
   return (
     <div>
       <h2>Results Page</h2>
       {answersList.map((ans, index) => {
-        const question = questionList[index]; // Get the corresponding question
+        const question = questionList[index]; 
 
-        // Check if the answer is correct and increment the counter
         if (ans.isCorrect) {
           correctAnswers++;
         }
